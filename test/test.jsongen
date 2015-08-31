@@ -1,0 +1,36 @@
+{
+  'zoos': [
+    {
+      'repeat:5': {
+		'id': '{{index()}}',
+        'name': '{{country()}} {{random("Royal Zoo", "National Zoo", "Great Zoo", "Zoo", "Zoo of the World", "Zoo and Conservation")}}',
+        'zookeeper': {
+          'first': '{{firstName()}}',
+          'last': '{{surname()}}'
+        },
+        'founded': '{{integer(1920, 2010)}}',
+        'phone': '{{phone("+x xxx xxx xxx")}}'
+      }
+    }
+  ],
+  'animals': [
+    {
+      'repeat:50': {
+        'id': '{{index()}}',
+        'zoo': '{{integer(0, 4)}}',
+        'count': '{{integer(1, 20)}}',
+        'type': '{{random("Salvelinus namaycush", "Dendrodrilus rubidus", "Elephantopus mollis", "Heliotropium curassavicum", "Acacia mangium", "Aleurites moluccana", "Salix cinerea", "Ciona intestinalis", "Schizoporella errata", "Spathodea campanulata", "Bythotrephes longimanus", "Ovis ammon", "Solanum seaforthianum", "Octolasion tyrtaeum", "Pittosporum undulatum", "Salvinia minima", "Canis latrans", "Leiothrix lutea", "Solanum tampicense", "Micropterus salmoides", "Cedrela odorata", "Zoobotryon verticillatum", "West Nile virus", "Crocidura suaveolens", "Cryphonectria parasitica", "Rapana venosa", "Trichosurus vulpecula", "Antidesma bunias", "Erodium cicutarium", "Leuciscus idus", "Ligustrum sinense", "Cenchrus setaceus", "Chronic Wasting Disease (CWD)", "Oryctolagus cuniculus", "Oplismenus hirtellus ssp. undulatifolius", "Monopterus albus", "Hemidactylus frenatus", "Spartina anglica", "Calluna vulgaris", "Sagina procumbens", "Tilapia zillii", "Arenga obtusifolia", "Verbascum thapsus", "Phoxinus phoxinus", "Vitex rotundifolia", "Zostera japonica", "Cyprinus carpio", "Canis lupus", "Cotinus coggygria", "Najas minor", "Bubo virginianus", "Tibouchina urvilleana", "Lasius neglectus", "Potamocorbula amurensis", "Sus scrofa", "Vespa velutina nigrithorax", "Nasua nasua", "Pyrus calleryana", "Prunus campanulata", "Senecio jacobaea", "Chrysobalanus icaco", "Anolis aeneus", "Opuntia ficus-indica", "Axis axis", "Ambrosia artemisiifolia", "Sesbania punicea", "Sargassum muticum", "Pueraria montana var. lobata", "Cabomba caroliniana", "Genista monspessulana", "Styela plicata", "Salvelinus fontinalis", "Cenchrus polystachios", "Python molurus bivittatus", "Psidium guajava", "Peromyscus fraterculus", "Monomorium destructor", "Euonymus fortunei", "Elaphe guttata", "Merremia peltata", "Iguana iguana", "Ostrea edulis", "Buddleja madagascariensis", "Xenopus laevis", "Boa constrictor imperator", "Terminalia catappa", "Clidemia hirta", "Wisteria sinensis", "Opuntia monacantha", "Cyperus rotundus", "Dalbergia sissoo", "Fuchsia boliviana", "Zantedeschia aethiopica", "Aegilops triuncialis", "Fraxinus floribunda", "Rhodomyrtus tomentosa", "Ficus rubiginosa", "Cenchrus macrourus", "Vespula pensylvanica")}}'
+      }
+    }
+  ],
+  'incident': [
+    {
+      'repeat:100': {
+        'id': '{{index()}}',
+        'comment': '{{random("gorilla attack", "earthquake", "sickness", "broken heart", "spontaneous combustion", "UFO", "unknown", "zalgo")}}',
+        'count': '{{integer(1, 4)}}',
+        'animal': '{{integer(0, 49)}}'
+      }
+    }
+  ]
+}

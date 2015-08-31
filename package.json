@@ -1,0 +1,44 @@
+{
+  "name": "mud-json",
+  "description": "JSON driver for the Mud ORM",
+  "version": "0.1.0",
+  "author": "Qix (http://github.com/qix-)",
+  "keywords": [
+    "database",
+    "driver",
+    "json",
+    "mud",
+    "orm"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "pretest": "xo",
+    "test": "mocha --full-trace --compilers coffee:coffee-script/register"
+  },
+  "xo": {
+    "rules": {
+      "guard-for-in": [1]
+    }
+  },
+  "files": [
+    "index.js"
+  ],
+  "repository": "ondemandmd/mud-json",
+  "peerDependencies": {
+    "mud": "git+https://github.com/ondemandmd/mud.git"
+  },
+  "devDependencies": {
+    "coffee-script": "^1.9.3",
+    "coveralls": "^2.11.2",
+    "istanbul": "^0.3.17",
+    "mocha": "^2.2.5",
+    "mud": "git+https://github.com/ondemandmd/mud.git",
+    "should": "^7.0.1",
+    "xo": "^0.7.1"
+  },
+  "dependencies": {
+    "is-arrayish": "^0.2.1",
+    "json-query": "^1.5.0",
+    "parse-json": "^2.2.0"
+  }
+}
