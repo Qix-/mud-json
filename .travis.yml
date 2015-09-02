@@ -1,5 +1,8 @@
 language: node_js
 
+before_install:
+  - '[[ "$TRAVIS_OS_NAME" == "osx" ]] && brew install nvm'
+
 script:
   - node_modules/.bin/istanbul cover node_modules/.bin/_mocha -- --compilers coffee:coffee-script/register
   - cat coverage/lcov.info | node_modules/.bin/coveralls
