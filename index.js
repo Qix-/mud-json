@@ -9,6 +9,8 @@ var path = require('path');
 var mud = require('mud');
 var isArrayish = require('is-arrayish');
 var parseJson = require('parse-json');
+var cloneDeep = require('clone-deep');
+var diffDeep = require('deep-diff');
 
 var mudJson = module.exports = {
 	install: function () {
@@ -28,6 +30,8 @@ var mudJson = module.exports = {
 		}
 
 		db.filepath = mudJson.getFileFromUrl(db.urlInfo);
+		db.transaction = [];
+
 		fs.readFile(db.filepath, opts, function (err, data) {
 			if (err) {
 				return cb(err);
@@ -69,5 +73,34 @@ var mudJson = module.exports = {
 		}
 
 		return cb(null, tables);
+	},
+
+	transactionBegin: function (db, cb) {
+		var transaction = {
+			original: cloneDeep(db.data),
+			data: cloneDeep(db.data)
+		};
+		return cb(null, db.transaction.push(transaction) - 1);
+	},
+
+	transactionCommit: function (db, id, cb) {
+		id = parseInt(id, 10);
+		if (id < 0 || id >= db.transaction.length) {
+			return cb(new Error('invalid transaction ID: ' + id));
+		}
+
+		var transaction = db.transaction[id];
+		db.transaction[id] = null;
+
+		var diff = diffDeep.diff(transaction.original, transaction.data);
+		diffDeep.applyChange(db.data, transaction.data, diff);
+
+		return cb();
+	},
+
+	transactionFail: function (db, id, cb) {
+		db = db;
+		id = id;
+		cb = cb;
 	}
 };
