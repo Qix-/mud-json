@@ -26,9 +26,6 @@
     "index.js"
   ],
   "repository": "ondemandmd/mud-json",
-  "peerDependencies": {
-    "mud": "git+https://github.com/ondemandmd/mud.git"
-  },
   "devDependencies": {
     "coffee-script": "^1.9.3",
     "coveralls": "^2.11.2",
